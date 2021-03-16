@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2021 at 01:18 AM
+-- Generation Time: Mar 16, 2021 at 07:14 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -85,7 +85,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (45, '2021_03_13_224644_create_menus_table', 1),
 (46, '2021_03_13_225257_create_products_table', 1),
 (47, '2021_03_13_225352_create_pesanans_table', 1),
-(48, '2021_03_13_225424_create_pesanan_details_table', 1);
+(48, '2021_03_13_225424_create_pesanan_details_table', 1),
+(49, '2021_03_16_021407_add_role_to_users_table', 2);
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,9 @@ INSERT INTO `pesanans` (`id`, `kode_pemesanan`, `status`, `total_harga`, `kodeun
 (12, 'FL-12', '1', 350000, 99, 1, '2021-03-15 15:36:11', '2021-03-15 15:36:20'),
 (13, 'FL-13', '1', 150000, 100, 1, '2021-03-15 15:37:13', '2021-03-15 15:37:20'),
 (14, 'FL-14', '1', 350000, 99, 1, '2021-03-15 15:57:37', '2021-03-15 15:57:43'),
-(15, 'FL-15', '1', 200000, 99, 1, '2021-03-15 16:18:52', '2021-03-15 16:19:02');
+(15, 'FL-15', '1', 200000, 99, 1, '2021-03-15 16:18:52', '2021-03-15 16:19:02'),
+(16, 'FL-16', '1', 300000, 99, 1, '2021-03-15 20:23:29', '2021-03-15 20:23:35'),
+(17, 'FL-17', '0', 300000, 100, 1, '2021-03-15 21:28:17', '2021-03-15 21:28:17');
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,9 @@ INSERT INTO `pesanan_details` (`id`, `jumlah_pesanan`, `total_harga`, `product_i
 (19, 3, 150000, 4, 13, '2021-03-15 15:37:14', '2021-03-15 15:37:14'),
 (20, 7, 350000, 3, 14, '2021-03-15 15:57:39', '2021-03-15 15:57:39'),
 (21, 2, 100000, 3, 15, '2021-03-15 16:18:52', '2021-03-15 16:18:52'),
-(22, 2, 100000, 4, 15, '2021-03-15 16:18:59', '2021-03-15 16:18:59');
+(22, 2, 100000, 4, 15, '2021-03-15 16:18:59', '2021-03-15 16:18:59'),
+(23, 6, 300000, 7, 16, '2021-03-15 20:23:29', '2021-03-15 20:23:29'),
+(24, 6, 300000, 1, 17, '2021-03-15 21:28:17', '2021-03-15 21:28:17');
 
 -- --------------------------------------------------------
 
@@ -214,15 +219,17 @@ CREATE TABLE `users` (
   `nohp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `gender`, `birth_date`, `email`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'zhikri', NULL, NULL, 'zheeext@gmail.com', NULL, '$2y$10$Bkd5d4XQfKk7buXqpe1ScuLivCE2WVYKxR5.ELZE9YzciZ9naTI/S', NULL, NULL, NULL, '2021-03-15 08:56:10', '2021-03-15 08:56:10');
+INSERT INTO `users` (`id`, `name`, `gender`, `birth_date`, `email`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
+(1, 'zhikri', NULL, NULL, 'zheeext@gmail.com', NULL, '$2y$10$Bkd5d4XQfKk7buXqpe1ScuLivCE2WVYKxR5.ELZE9YzciZ9naTI/S', NULL, NULL, NULL, '2021-03-15 08:56:10', '2021-03-15 08:56:10', 'admin'),
+(2, 'zhik', NULL, NULL, 'zhitop12@gmail.com', NULL, '$2y$10$IU1BXC5ZK.xAYPREH126sOIdXI8Rm4hhtu6QSLSTb9OQ1GtpeXtgS', NULL, NULL, NULL, '2021-03-15 19:44:29', '2021-03-15 19:44:29', 'user');
 
 --
 -- Indexes for dumped tables
@@ -297,19 +304,19 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -321,7 +328,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

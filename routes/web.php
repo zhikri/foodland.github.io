@@ -22,3 +22,4 @@ Route::livewire('/products/menu/{menuId}', 'product-menu')->name('products.menu'
 Route::livewire('/products/{id}', 'product-detail')->name('products.detail');
 Route::livewire('/cart', 'cart')->name('cart');
 Route::livewire('/history', 'history')->name('history');
+Route::livewire('/fl-admin', 'admin-dashboard')->name('fl-admin');
