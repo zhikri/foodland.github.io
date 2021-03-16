@@ -1,0 +1,48 @@
+.banner img{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.pilih-menu img{
+    height: 90px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.pilih-menu .card{
+    border-radius: 15px;
+    height: 90px;
+}
+
+.foods .card{
+    border-radius: 15px;
+}
+
+.foods img{
+    max-height: 150px;
+}
+
+.breadcrumb{
+    background-color:transparent;
+    padding:0;
+}
+
+.breadcrumb .active{
+    color: #272D2F;
+    font-weight: bold;
+}
+
+#basic-addon1{
+    background-color: transparent;
+}
+
+.product-img{
+    background-color: #f8f8f8;
+    border-width: 0;
+    border-radius: 20px;
+}
+
+.detail-card{
+    max-width: 500px;
+    max-height: 400px
+}
